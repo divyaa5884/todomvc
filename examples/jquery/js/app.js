@@ -68,6 +68,9 @@ jQuery(function ($) {
 			$('.todo-list').html(this.todoTemplate(todos));
 			$('.main').toggle(todos.length > 0);
 			$('.toggle-all').prop('checked', this.getActiveTodos().length === 0);
+			if(this.filter === 'all'){
+				$('.todo-list li').last().addClass('fading');
+			}
 			this.renderFooter();
 			$('.new-todo').focus();
 			util.store('todos-jquery', this.todos);
